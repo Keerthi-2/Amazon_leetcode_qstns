@@ -14,10 +14,22 @@ class Solution:
 
         
         ans=[]
-        for l,r in queries:
+        
+        m=len(bins)
+        mat=[[0 for i in range(m)]for j in range(m)]
+
+        for i in range(m):
             cur=1
-            for i in range(l,r+1):
-                cur=(cur*bins[i])%mod
-            ans.append(cur)
+            for j in range(i,m):
+                cur*=bins[j]
+                mat[i][j]=(cur%mod)
+        
+        for i in queries:
+            x=i[0]
+            y=i[1]
+            
+            ans.append(mat[x][y])
+
+
         
         return ans
