@@ -7,4 +7,5 @@ class Solution:
                 digit1 = ord(s_list[j]) - ord("0")
                 digit2 = ord(s_list[j + 1]) - ord("0")
                 s_list[j] = chr(((digit1 + digit2) % 10) + ord("0"))
+        print(s_list)
         return s_list[0] == s_list[1]
